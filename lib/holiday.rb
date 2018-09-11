@@ -83,4 +83,4 @@ end                                      # => :all_holidays_with_bbq
   :spring => {
     :memorial_day => ["BBQ"]                 # => ["BBQ"]
   }                                          # => {:memorial_day=>["BBQ"]}
-}.values.flatten.reduce(&:merge).select{|k, v| v.includes? "BBQ"}             # => {:christmas=>["Lights", "Wreath"], :new_years=>["Party Hats"], :fourth_of_july=>["Fireworks", "BBQ"], :thanksgiving=>["Turkey"], :memorial_day=>["BBQ"]}
+}.values.flatten.reduce(&:merge).select{|k, v| v.includes? "BBQ"}.keys             # => {:christmas=>["Lights", "Wreath"], :new_years=>["Party Hats"], :fourth_of_july=>["Fireworks", "BBQ"], :thanksgiving=>["Turkey"], :memorial_day=>["BBQ"]}
