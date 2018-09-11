@@ -1,4 +1,4 @@
-require 'binding.pry'  # ~> LoadError: cannot load such file -- pry
+require 'pry'  # ~> LoadError: cannot load such file -- binding.pry
 
 def second_supply_for_fourth_of_july(holiday_hash)
   # given that holiday_hash looks like this:
@@ -86,7 +86,7 @@ end
 }.values
 
 # ~> LoadError
-# ~> cannot load such file -- pry
+# ~> cannot load such file -- binding.pry
 # ~>
 # ~> /usr/local/Cellar/ruby/2.5.1/lib/ruby/2.5.0/rubygems/core_ext/kernel_require.rb:59:in `require'
 # ~> /usr/local/Cellar/ruby/2.5.1/lib/ruby/2.5.0/rubygems/core_ext/kernel_require.rb:59:in `require'
