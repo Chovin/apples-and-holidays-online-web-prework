@@ -71,16 +71,24 @@ end                                      # => :all_holidays_with_bbq
 
 {
   :winter => {
-    :christmas => ["Lights", "Wreath"],      # => ["Lights", "Wreath"]
-    :new_years => ["Party Hats"]             # => ["Party Hats"]
-  },                                         # => {:christmas=>["Lights", "Wreath"], :new_years=>["Party Hats"]}
+    :christmas => ["Lights", "Wreath"],                                 # => ["Lights", "Wreath"]
+    :new_years => ["Party Hats"]                                        # => ["Party Hats"]
+  },                                                                    # => {:christmas=>["Lights", "Wreath"], :new_years=>["Party Hats"]}
   :summer => {
-    :fourth_of_july => ["Fireworks", "BBQ"]  # => ["Fireworks", "BBQ"]
-  },                                         # => {:fourth_of_july=>["Fireworks", "BBQ"]}
+    :fourth_of_july => ["Fireworks", "BBQ"]                             # => ["Fireworks", "BBQ"]
+  },                                                                    # => {:fourth_of_july=>["Fireworks", "BBQ"]}
   :fall => {
-    :thanksgiving => ["Turkey"]              # => ["Turkey"]
-  },                                         # => {:thanksgiving=>["Turkey"]}
+    :thanksgiving => ["Turkey"]                                         # => ["Turkey"]
+  },                                                                    # => {:thanksgiving=>["Turkey"]}
   :spring => {
-    :memorial_day => ["BBQ"]                 # => ["BBQ"]
-  }                                          # => {:memorial_day=>["BBQ"]}
-}.values.flatten.reduce(&:merge).select{|k, v| v.includes? "BBQ"}.keys             # => {:christmas=>["Lights", "Wreath"], :new_years=>["Party Hats"], :fourth_of_july=>["Fireworks", "BBQ"], :thanksgiving=>["Turkey"], :memorial_day=>["BBQ"]}
+    :memorial_day => ["BBQ"]                                            # => ["BBQ"]
+  }                                                                     # => {:memorial_day=>["BBQ"]}
+}.values.flatten.reduce(&:merge).select{|k, v| v.include? "BBQ"}.keys  # ~> NoMethodError: undefined method `includes?' for ["Lights", "Wreath"]:Array\nDid you mean?  include?
+
+# ~> NoMethodError
+# ~> undefined method `includes?' for ["Lights", "Wreath"]:Array
+# ~> Did you mean?  include?
+# ~>
+# ~> holiday.rb:86:in `block in <main>'
+# ~> holiday.rb:86:in `select'
+# ~> holiday.rb:86:in `<main>'
