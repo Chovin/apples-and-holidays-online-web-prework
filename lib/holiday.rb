@@ -71,23 +71,16 @@ end                                      # => :all_holidays_with_bbq
 
 {
   :winter => {
-    :christmas => ["Lights", "Wreath"],            # => ["Lights", "Wreath"]
-    :new_years => ["Party Hats"]                   # => ["Party Hats"]
-  },                                               # => {:christmas=>["Lights", "Wreath"], :new_years=>["Party Hats"]}
+    :christmas => ["Lights", "Wreath"],      # => ["Lights", "Wreath"]
+    :new_years => ["Party Hats"]             # => ["Party Hats"]
+  },                                         # => {:christmas=>["Lights", "Wreath"], :new_years=>["Party Hats"]}
   :summer => {
-    :fourth_of_july => ["Fireworks", "BBQ"]        # => ["Fireworks", "BBQ"]
-  },                                               # => {:fourth_of_july=>["Fireworks", "BBQ"]}
+    :fourth_of_july => ["Fireworks", "BBQ"]  # => ["Fireworks", "BBQ"]
+  },                                         # => {:fourth_of_july=>["Fireworks", "BBQ"]}
   :fall => {
-    :thanksgiving => ["Turkey"]                    # => ["Turkey"]
-  },                                               # => {:thanksgiving=>["Turkey"]}
+    :thanksgiving => ["Turkey"]              # => ["Turkey"]
+  },                                         # => {:thanksgiving=>["Turkey"]}
   :spring => {
-    :memorial_day => ["BBQ"]                       # => ["BBQ"]
-  }                                                # => {:memorial_day=>["BBQ"]}
-}.values.flatten.select {|k, v| v.includes? "BBQ"}  # ~> NoMethodError: undefined method `include?' for nil:NilClass
-
-# ~> NoMethodError
-# ~> undefined method `include?' for nil:NilClass
-# ~>
-# ~> holiday.rb:86:in `block in <main>'
-# ~> holiday.rb:86:in `select'
-# ~> holiday.rb:86:in `<main>'
+    :memorial_day => ["BBQ"]                 # => ["BBQ"]
+  }                                          # => {:memorial_day=>["BBQ"]}
+}.values.flatten(2)                     # => [{:christmas=>["Lights", "Wreath"], :new_years=>["Party Hats"]}, {:fourth_of_july=>["Fireworks", "BBQ"]}, {:thanksgiving=>["Turkey"]}, {:memorial_day=>["BBQ"]}]
